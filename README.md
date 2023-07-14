@@ -1,92 +1,58 @@
 # kube-test
 
-minikube status   //status of nodes of kubernetes cluster
+To check the status of the Kubernetes cluster nodes:
+- `minikube status`
+- `kubectl get nodes`
 
-kubectl get nodes //status of nodes of kubernetes cluster
+To delete the nodes:
+- `minikube delete`
 
-minikube delete //to delete the nodes
+To start the cluster in debug mode:
+- `minikube start --v=7 --alsologtostderr`
 
-minikube start --v=7 --alsologtostderr //start cluster in debug mode
+To get the number of pods and status of services:
+- `kubectl get pod`
+- `kubectl get services`
 
-kubectl get pod //to get the number of pod
+To create a pod deployment (replace `<POD_NAME>` and `<IMAGE_NAME>` with appropriate values):
+- `kubectl create deployment <POD_NAME> --image=<IMAGE_NAME>`
 
-kubectl get services //to get status of the services
+Example:
+- `kubectl create deployment nginx-depl --image=nginx`
 
-kubectl create deployment <POD_NAME> --image=<IMAGE_NAME>   // to create pod
+To see the list of deployments, pods, services, and replica sets:
+- `kubectl get deployment`
+- `kubectl get pod`
+- `kubectl get service`
+- `kubectl get replicaset`
 
-kubectl create deployment nginx-depl --image=nginx   //if the image is not present it will download the latest iamgees for the docker hub
+To edit a deployment:
+- `kubectl edit deployment nginx-depl`
 
-kubectl get deployment //to see the list of deployment
+To view the logs of a pod:
+- `kubectl logs <pod_id>`
 
-kubectl get pod // to get the pod status
-kubectl get service //to get list of services
-kubectl get replicaset  //to see the replicaset status
-//replicaset is managing the replicas of a pod
-//we never have to CRUD replicaset we directly wor with deployment
+Example:
+- `kubectl logs nginx-depl-56cb8b6d7-6f66l`
 
-//Layers of Abstraction 
-//Deployment manages a --> //Replicasset manages a --> //Pod is an abstraction of --> //Container
+To access the terminal of a pod:
+- `kubectl exec -it <pod_id> -- bin/bash`
 
+Example:
+- `kubectl exec -it nginx-depl-56cb8b6d7-6f66l -- bin/bash`
 
-kubectl edit deployment nginx-depl  //to edit the deployment layer
+To delete a deployment:
+- `kubectl delete deployment <deployment_name/id>`
 
-kubectl logs <pod id (it can be accessed using `kubctl get pod`)>
-kubectl logs nginx-depl-56cb8b6d7-6f66l
+Example:
+- `kubectl delete deployment nginx-depl`
 
+To run a deployment using a .yaml file:
+- `kubectl apply -f deployment.yaml`
 
-//TERMINAL
-kubectl exec -it <pod id (it can be accessed using `kubctl get pod`)> -- bin/bash
-kubectl exec -it nginx-depl-56cb8b6d7-6f66l -- bin/bash
+To get the full description of a service:
+- `kubectl describe service nginx-service`
 
-
-//DELETE
-kubectl delete deployment <Deployment name/id (kubectl get deployment)> 
-
-//run deployment using the .yaml file
-eg: (for deployment)
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-depl
-  labels:
-    app: nginx
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.16
-        ports:
-        - containerPort: 80
-
-eg: (for services)
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-service
-spec:
-  selector:
-    app: nginx
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
-
-deployment.apps/nginx-depl configured
-
-//full description of service name
-kubectl describe service nginx-service
-kubectl get pod -o wide
-kubectl get deployment nginx-depl -o yaml >nginx-deploment-result.yaml
-
-kubectl delete -f nginx-service.yml/deployment.yaml //will delte the deployment or the service which was started using it
-
-kubectl delete -f nginx-service.yaml
-kubectl delete -f nginx-depl.yaml
+To delete a deployment or service:
+- `kubectl delete -f nginx-service.yaml`
+- `kubectl delete -f nginx-depl.yaml`
