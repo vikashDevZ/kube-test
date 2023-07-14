@@ -75,6 +75,7 @@ spec:
           image: nginx:1.16
           ports:
             - containerPort: 80
+```
 
 For services:
 ```yaml
@@ -89,6 +90,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
+```
 
 To get the full description of a service:
 
