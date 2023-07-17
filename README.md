@@ -118,6 +118,26 @@ To watch the ingress creating process add --watch
 - kubectl get ingress -n kubernetes-dashboard --watch
 
 ## For creating a local custom domain
+
+kubectl get all -n kubernetes-dashboard
+```
+NAME                                            READY   STATUS    RESTARTS   AGE
+pod/dashboard-metrics-scraper-5c6664855-668km   1/1     Running   0          52m
+pod/kubernetes-dashboard-55c4cbbc7c-8dlbn       1/1     Running   0          52m
+
+NAME                                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/dashboard-metrics-scraper   ClusterIP   10.101.96.71     <none>        8000/TCP   52m
+service/kubernetes-dashboard        ClusterIP   10.100.190.247   <none>        80/TCP     52m
+
+NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/dashboard-metrics-scraper   1/1     1            1           52m
+deployment.apps/kubernetes-dashboard        1/1     1            1           52m
+
+NAME                                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/dashboard-metrics-scraper-5c6664855   1         1         1       52m
+replicaset.apps/kubernetes-dashboard-55c4cbbc7c       1         1         1       52m
+```
+
 ```
 rajat@Rajat--Laptop:/$ cat /etc/hosts
 127.0.0.1	localhost
