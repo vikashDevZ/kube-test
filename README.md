@@ -92,6 +92,8 @@ spec:
       targetPort: 8080
 ```
 
+## kubectl apply -f <filename>.yaml
+
 To get the full description of a service:
 
 - `kubectl describe service nginx-service` (full description of service name)
@@ -101,3 +103,33 @@ To delete a deployment or service:
 Delete the deployment or service using the following command:
 - `kubectl delete -f nginx-service.yml` (to delete the service)
 - `kubectl delete -f nginx-depl.yaml` (to delete the deployment)
+
+Enable kubernetes ingress and dashboard
+- minikube addons enable/disable ingress
+- minikube addons enable dashboard
+
+Command for kube-system pods
+- kubectl get pod -n kube-system
+
+Kubernetes-dashoard service, deployment, pod, replicaset details
+- kubectl get all -n kubernetes-dashboard
+
+To watch the ingress creating process add --watch
+- kubectl get ingress -n kubernetes-dashboard --watch
+
+## For creating a local custom domain
+```
+rajat@Rajat--Laptop:/$ cat /etc/hosts
+127.0.0.1	localhost
+127.0.1.1	Rajat--Laptop
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+192.168.49.2 dashboard.com
+```
+
