@@ -98,7 +98,7 @@ To get the full description of a service:
 - `kubectl describe service nginx-service` (full description of service name)
 
 To get the service url
-- minikube service <service-name> --url
+- minikube service `<SERVICE_NAME>` --url
 
 To delete a deployment or service:
 
