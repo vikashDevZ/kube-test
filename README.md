@@ -219,6 +219,7 @@ spec:
 - provisioner fields tells kubernetes which provisioner to be used for specific storage platform or cloud provider to create a persistant storage out of it
 - so when pod claims storage through PVC, PVC will request storage from storage class, which then will provision create persistent volume that meets the needs of that claim using the provisioner from actual storage backend
 
+#### storageclass.yaml
 ```
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -230,3 +231,20 @@ parameters:
   iopsPerGB: "10"
   fsType: ext4
 ```
+#### persistentVolumeClaim.yaml
+```
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-name
+spec:
+  storageClassName: manual
+  volumeMode: FileSystem
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: storage-class-name
+```
+- here the PVC is using the storageclassname field to map to the storage class
