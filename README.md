@@ -202,3 +202,4 @@ spec:
       prsistentVolumeClaim:
         claimName: pvc-name
 ```
+## Claims must present in the same name spaces in the cluster in which the pod exist
