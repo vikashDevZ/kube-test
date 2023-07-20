@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: reset
+  template:
+    metadata:
+      labels:
+        app: reset
+    spec:
+      containers:
+      - name: reset
+        image: vikashdev/reset:latest
+        ports:
+        - containerPort: 2007
