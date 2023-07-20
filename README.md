@@ -210,4 +210,23 @@ spec:
 - managed by kubernetes itself
 - ( consider a case where you need a cofig file for prometheus pod or massage broker like mosquito or consider when you needed certificated file mounted inside your application in both cases you need file avaialbe to a pod)
 - in these cases the config and secret file and you can mount that into the pod same as PVC
-  
+- same as PVC volume it is request and claimed by pvc
+- therefore in order to access it in Persistent volume claim of PVC 
+
+#### Storage Class
+- creates or provisions Persistent Volumes dynamically in the background
+- can be created and configured using .yaml file
+- provisioner fields tells kubernetes which provisioner to be used for specific storage platform or cloud provider to create a persistant storage out of it
+- so when pod claims storage through PVC, PVC will request storage from storage class, which then will provision create persistent volume that meets the needs of that claim using the provisioner from actual storage backend
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: storage-class-name
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: io1
+  iopsPerGB: "10"
+  fsType: ext4
+```
