@@ -203,3 +203,11 @@ spec:
         claimName: pvc-name
 ```
 #### Claims must present in the same name spaces in the cluster in which the pod exist
+
+#### Configmp and Secret
+- local volumes (both)
+- not created via PV(persistent volume) or PVC (persistent volume claim)
+- managed by kubernetes itself
+- ( consider a case where you need a cofig file for prometheus pod or massage broker like mosquito or consider when you needed certificated file mounted inside your application in both cases you need file avaialbe to a pod)
+- in these cases the config and secret file and you can mount that into the pod same as PVC
+  
