@@ -1,0 +1,23 @@
+spec:
+  containers:
+  - image: elastic:latest
+    name: elastic-container
+    ports:
+    - containerPort: 9200
+    volumeMounts:
+    - name: es-persistent-storage
+      mountPath: /var/lib/data
+    - name: es-secret-dir
+      mountPath: /var/lib/secret
+    - name: es-config-dir
+      mountPath: /var/lib/config
+    volumes:
+    - name: es-pesistent-storage
+      persistentVolumeClaim:
+        claimName: es-pv-claim
+    - name: es-secret-dir
+      secret:
+        secretName: es-secret
+    - name: es-config-dir
+      configMap:
+        name: es-config-map
