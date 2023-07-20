@@ -155,3 +155,8 @@ ff02::2 ip6-allrouters
 192.168.49.2 dashboard.com
 ```
 
+To access the termial of the containers running inside the pod
+- kubectl exec -it nginx -c sidecar -- /bin/sh
+- kubectl exec -it <podname?> -c <image name specified int the .yaml file> -- /bin/sh
+
+
