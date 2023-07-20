@@ -205,6 +205,7 @@ spec:
 #### Claims must present in the same name spaces in the cluster in which the pod exist
 
 #### Configmp and Secret
+- `kubectl get configmap` (to get the configed files info)
 - local volumes (both)
 - not created via PV(persistent volume) or PVC (persistent volume claim)
 - managed by kubernetes itself
