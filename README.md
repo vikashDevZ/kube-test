@@ -157,6 +157,48 @@ ff02::2 ip6-allrouters
 
 To access the termial of the containers running inside the pod
 - kubectl exec -it nginx -c sidecar -- /bin/sh
-- kubectl exec -it <podname?> -c <image name specified int the .yaml file> -- /bin/sh
+- kubectl exec -it <podname> -c <image name specified int the .yaml file> -- /bin/sh
 
+To list all the docker container running in minikube
+- (you will see all the containers which are running inside the minikube as all the contaners are not visible by default)
+- eval $(minikube docker-env)
+- docker ps 
 
+To use the persistent Volume in kubernetes create a Persisten Volume Claim file
+ed:
+
+```
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-name
+spec:
+  storageClassName: manual
+  volumeMode: FileSystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+```
+
+To use it add the `volume` field in the pod with the name mapping to the file name
+eg:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/www/html"
+        name: mypd
+  volumes:
+    - name: mypd
+      prsistentVolumeClaim:
+        claimName: pvc-name
+```
