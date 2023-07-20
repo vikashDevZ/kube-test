@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reset
+spec:
+  selector:
+    app: reset
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 2007
+  type: LoadBalancer
