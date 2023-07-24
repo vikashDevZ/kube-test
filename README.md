@@ -8,7 +8,7 @@ To watch Pods staus
 - kubectl get pods -w
 
 #### When we create a Deployment it create a Replicaset which will create a Pod
-- Deployment >> Replicaset >> Pod
+- Service >> Deployment >> Replicaset >> Pod
 
 To delete the nodes:
 - `minikube delete` (to delete the nodes)
