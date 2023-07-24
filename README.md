@@ -16,7 +16,7 @@ To watch Pods staus
 - Service are used to access the kubernetes cluster which are outside the network
 
 Role on kube Proxy
-- use to configure the request incoming from the client to the destination enpoint
+- use to configure the request incoming from the client to the destination to required Pod
 
 Creating Service of Different type:
 - ClusterIP Service: only accessible to the user who has access to kubectl cluster. (Fully Private)
