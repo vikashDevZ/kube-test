@@ -9,6 +9,7 @@ To watch Pods staus
 
 #### When we create a Deployment it create a Replicaset which will create a Pod
 - Service >> Deployment >> Replicaset >> Pod
+- Service are used to access the kubernetes cluster which are outside the network
 
 To delete the nodes:
 - `minikube delete` (to delete the nodes)
