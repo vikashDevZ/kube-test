@@ -11,6 +11,11 @@ To watch Pods staus
 - Service >> Deployment >> Replicaset >> Pod
 - Service are used to access the kubernetes cluster which are outside the network
 
+Creating Service of Different type:
+- ClusterIP Service: only accessible to the user who has access to kubectl cluster. (Fully Private)
+- LoadBalancer Type Serive: gets public ip address and can be accessible to anyone in the network (Fully Public)
+- NodePort: Whoever has access to worker node, like ec2 instance traffic, vpc, etc.
+
 To delete the nodes:
 - `minikube delete` (to delete the nodes)
 
