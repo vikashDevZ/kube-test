@@ -8,7 +8,7 @@ To watch Pods staus
 - kubectl get pods -w
 
 ### Architecture of Kubernetes
-- Control Plane: ETCD, API Server, Schedular, Controller Manager, C-CM.
+- Control Plane: ETCD, API Server, Schedular, Controller Manager, C-CM (Cloud control manager).
 - Data Plane: Kubelet, Kube Proxy, Container Runtime.
 
 #### When we create a Deployment it create a Replicaset which will create a Pod
