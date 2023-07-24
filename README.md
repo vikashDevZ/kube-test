@@ -4,6 +4,9 @@ To check the status of the Kubernetes cluster nodes:
 - `minikube status` (status of nodes of the Kubernetes cluster)
 - `kubectl get nodes` (status of nodes of the Kubernetes cluster)
 
+#### When we create a Deployment it create a Replicaset which will create a Pod
+- Deployment >> Replicaset >> Pod
+
 To delete the nodes:
 - `minikube delete` (to delete the nodes)
 
