@@ -15,6 +15,9 @@ To watch Pods staus
 - Service >> Deployment >> Replicaset >> Pod
 - Service are used to access the kubernetes cluster which are outside the network
 
+Role on kube Proxy
+- use to configure the request incoming from the client to the destination enpoint
+
 Creating Service of Different type:
 - ClusterIP Service: only accessible to the user who has access to kubectl cluster. (Fully Private)
 - LoadBalancer Type Serive: gets public ip address and can be accessible to anyone in the network (Fully Public)
