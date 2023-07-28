@@ -7,6 +7,8 @@ To check the status of the Kubernetes cluster nodes:
 To watch Pods staus
 - kubectl get pods -w
 
+#### When user creates a POD, a default Service is automatically get created.
+
 ### Architecture of Kubernetes
 - Control Plane: ETCD, API Server, Schedular, Controller Manager, C-CM (Cloud control manager).
 - Data Plane: Kubelet, Kube Proxy, Container Runtime.
@@ -268,3 +270,10 @@ spec:
   storageClassName: storage-class-name
 ```
 - here the PVC is using the storageclassname field to map to the storage class
+
+## RBAC
+#### Roles, Role Binding and Cluster Roles
+- Roles are used to give access to the user, like access to pods, configMap, secret with same name-space
+- Cluster roles are used to give roles to user accross cluster not only name-space
+- Role Binding is use to bind the roles to users (like services and roles in AWS)
+- Role Binding = Bind roles to Service accounts
