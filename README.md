@@ -304,3 +304,11 @@ rajat@Rajat--Laptop:~$ kubectl expose service prometheus-kube-state-metrics --ty
 - CRD Custom Resource Defination
 - CR is validated agains the CRD
 - Custom Controller- same as deployment controller, replicaset controller, pod controller for custom resources
+
+
+### Installing custom resources using HELM
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install grafana grafana/grafana
+```
