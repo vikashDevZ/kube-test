@@ -1,0 +1,37 @@
+rajat@Rajat--Laptop:~$ helm repo add grafana https://grafana.github.io/helm-charts
+"grafana" has been added to your repositories
+rajat@Rajat--Laptop:~$ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "harness-delegate" chart repository
+...Successfully got an update from the "kubeshark" chart repository
+...Successfully got an update from the "grafana" chart repository
+...Successfully got an update from the "prometheus-community" chart repository
+...Successfully got an update from the "prometheus-coomunity" chart repository
+Update Complete. ⎈Happy Helming!⎈
+
+#
+rajat@Rajat--Laptop:~$ helm install grafana grafana/grafana
+NAME: grafana
+LAST DEPLOYED: Tue Aug  1 15:04:24 2023
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get your 'admin' user password by running:
+
+   kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+
+2. The Grafana server can be accessed via port 80 on the following DNS name from within your cluster:
+
+   grafana.default.svc.cluster.local
+
+   Get the Grafana URL to visit by running these commands in the same shell:
+     export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+     kubectl --namespace default port-forward $POD_NAME 3000
+
+3. Login with the password from step 1 and the username: admin
+#################################################################################
+######   WARNING: Persistence is disabled!!! You will lose your data when   #####
+######            the Grafana pod is terminated.                            #####
+#################################################################################
