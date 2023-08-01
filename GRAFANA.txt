@@ -9,8 +9,10 @@ Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "prometheus-coomunity" chart repository
 Update Complete. ⎈Happy Helming!⎈
 
-#
+--------------------------------------------------------------------------------------------------
 rajat@Rajat--Laptop:~$ helm install grafana grafana/grafana
+--------------------------------------------------------------------------------------------------
+
 NAME: grafana
 LAST DEPLOYED: Tue Aug  1 15:04:24 2023
 NAMESPACE: default
