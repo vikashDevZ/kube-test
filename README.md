@@ -282,4 +282,21 @@ spec:
 - Role Binding is use to bind the roles to users (like services and roles in AWS)
 - Role Binding = Bind roles to Service accounts
 
+### Exposing services to localhost using node port
+```
+rajat@Rajat--Laptop:~$ kubectl get svc
+NAME                                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+grafana                               ClusterIP   10.99.88.51      <none>        80/TCP         27m
+grafana-ext                           NodePort    10.101.56.142    <none>        80:30088/TCP   21m
+kubernetes                            ClusterIP   10.96.0.1        <none>        443/TCP        18d
+prometheus-alertmanager               ClusterIP   10.105.204.175   <none>        9093/TCP       48m
+prometheus-alertmanager-headless      ClusterIP   None             <none>        9093/TCP       48m
+prometheus-kube-state-metrics         ClusterIP   10.102.192.183   <none>        8080/TCP       48m
+prometheus-prometheus-node-exporter   ClusterIP   10.100.12.57     <none>        9100/TCP       48m
+prometheus-prometheus-pushgateway     ClusterIP   10.98.191.108    <none>        9091/TCP       48m
+prometheus-server                     ClusterIP   10.111.24.209    <none>        80/TCP         48m
+prometheus-server-ext                 NodePort    10.105.156.80    <none>        80:30615/TCP   15m
+
+rajat@Rajat--Laptop:~$ kubectl expose service prometheus-kube-state-metrics --type=NodePort --target-port=8080 --name=prometheus-kube-state-metrics-ext
+```
 
