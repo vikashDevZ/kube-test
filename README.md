@@ -38,6 +38,10 @@ To get the number of pods and status of services:
 To create a pod deployment (replace `<POD_NAME>` and `<IMAGE_NAME>` with appropriate values):
 - `kubectl create deployment <POD_NAME> --image=<IMAGE_NAME>` (to create a pod)
 
+To create ne service based from the list of services
+- kubectl expose service <service name from the list> --type=NodePort --target-port=<port> --name=<new service name>
+- Eg: kubectl expose service porometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext
+
 Example:
 - `kubectl create deployment nginx-depl --image=nginx` (if the image is not present, it will download the latest image from Docker Hub)
 
@@ -278,6 +282,4 @@ spec:
 - Role Binding is use to bind the roles to users (like services and roles in AWS)
 - Role Binding = Bind roles to Service accounts
 
-To create ne service based from the list of services
-- kubectl expose service <service name from the list> --type=NodePort --target-port=<port> --name=<new service name>
-- Eg: kubectl expose service porometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext
+
