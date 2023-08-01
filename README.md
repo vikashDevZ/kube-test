@@ -300,3 +300,7 @@ prometheus-server-ext                 NodePort    10.105.156.80    <none>       
 rajat@Rajat--Laptop:~$ kubectl expose service prometheus-kube-state-metrics --type=NodePort --target-port=8080 --name=prometheus-kube-state-metrics-ext
 ```
 
+### ISTIO, ArgoCD, Keycloak
+- CRD Custom Resource Defination
+- CR is validated agains the CRD
+- Custom Controller- same as deployment controller, replicaset controller, pod controller for custom resources
