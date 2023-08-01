@@ -305,7 +305,7 @@ rajat@Rajat--Laptop:~$ kubectl expose service prometheus-kube-state-metrics --ty
 - CR is validated agains the CRD
 - Custom Controller- same as deployment controller, replicaset controller, pod controller for custom resources
 - command to see list of custom resource
-- - `kubectl get crd`
+  - `kubectl get crd`
 
 ### Installing custom resources using HELM
 ```
