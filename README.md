@@ -313,3 +313,5 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 helm install grafana grafana/grafana
 ```
+
+https://chat.openai.com/share/6ba7841f-7747-4c89-9b50-ddea884ad813
