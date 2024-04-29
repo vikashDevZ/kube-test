@@ -315,3 +315,5 @@ helm install grafana grafana/grafana
 ```
 
 https://chat.openai.com/share/6ba7841f-7747-4c89-9b50-ddea884ad813
+https://chat.openai.com/share/28d212ac-ab50-44e4-a028-7a15072aeb2d
+
